@@ -1,0 +1,38 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Login to your Gmail account to get yout statistics</h1>
+  <form method="post" name="login">
+      {{ form.hidden_tag() }}
+
+      <p>
+      	Enter your Gmail username:<br>
+      	{{ form.username(size=80) }}<br>
+
+      	{% for error in form.username.errors %}
+      		<span style="color: red;">[{{ error }}]</span>
+      	{% endfor %}<br>
+      </p>
+
+      <p>
+      	Enter your password:<br>
+      	{{ form.password(size=80) }}<br>
+
+      	{% for error in form.password.errors %}
+      		<span style="color: red;">[{{ error }}]</span>
+      	{% endfor %}<br>
+      </p>
+
+      <p>
+      	Enter the folder or label's name you'd like to get statistics about (e.g. inbox):<br>
+      	{{ form.folder(size=80) }}<br>
+
+      	{% for error in form.folder.errors %}
+      		<span style="color: red;">[{{ error }}]</span>
+      	{% endfor %}<br>
+      </p>
+
+      <p><input type="submit" value="Login"></p>
+  </form>
+{% endblock %}

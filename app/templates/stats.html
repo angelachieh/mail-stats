@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Your mail statistics</h1>
+
+	<div class="charts_container">
+		<div class="chart_container">
+			<canvas id="chartCanvas1" width="720" height="750">
+				Your web-browser does not support the HTML 5 canvas element.
+			</canvas>
+		</div>
+	</div>
+
+	<script type="application/javascript" src="{{ url_for('static', filename='js/awesomechart.js') }}"></script>
+
+	<script type="application/javascript">
+		var chart1 = new AwesomeChart("chartCanvas1");
+		chart1.chartType = "horizontal bars";
+		chart1.title = "Top " + {{ nbWords }} + " words";
+
+		chart1.data = {{ values }};
+		chart1.labels = {{ keys|safe }};
+
+		chart1.randomColors = true;
+		chart1.draw();
+	</script>
+{% endblock %}

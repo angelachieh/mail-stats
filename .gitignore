@@ -1,0 +1,5 @@
+.DS_Store
+flask2
+*.pyc
+config.py
+app/stats/pattern/web/cache/tmp/
