@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Login to your Gmail account to get your statistics</h1>
+  <h1>Log in to your Gmail account to get your statistics</h1>
   <form method="post" name="login">
       {{ form.hidden_tag() }}
 
@@ -33,6 +33,18 @@
       	{% endfor %}<br>
       </p>
 
-      <p><input type="submit" value="Login"></p>
+      <p><input type="submit" value="Log in"></p>
   </form>
+
+  <div>
+  	<h3>If you're having trouble logging in, follow these steps:</h3>
+  	<p>
+  		<b>Login to your Gmail account and enable IMAP</b><br>
+  		Go to <a href="https://mail.google.com/mail/u/0/#settings/fwdandpop" target="_blank">Forwarding and POP/IMAP</a> and check “Enable IMAP”.<br>
+  		<b>Enable access to less secure apps</b><br>
+  		Go to <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">this page</a> and turn on the access.<br>
+  		<b>Unlock access</b><br>
+  		Go to <a href="https://accounts.google.com/b/0/DisplayUnlockCaptcha" target="_blank">this page</a> and click on “Continue” to enable the access.
+  	<p>
+  </div>
 {% endblock %}
